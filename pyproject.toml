@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ditto"
+version = "0.1.0"
+description = "Development Infrastructure Template Tool for Optimization"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "pandas",
+    "scipy",
+    "pint",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "ty",
+]
+docs = [
+    "sphinx",
+    "pydata-sphinx-theme",
+    "sphinx-copybutton",
+    "sphinx-design",
+    "myst-parser",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ditto"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "C4", "UP"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=ditto --cov-report=term-missing"
+
+[tool.ty]
+python-version = "3.11"

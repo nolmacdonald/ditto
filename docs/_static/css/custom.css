@@ -1,0 +1,174 @@
+/* ==========================================================================
+   ditto – Custom Design Tokens & Styles
+   All design tokens are defined here for easy theme customisation.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Font imports – Montserrat (body) & Roboto Mono (mono)
+   Loaded from Google Fonts as open-source alternatives to PP Neue Montreal
+   and PP Neue Montreal Mono. To use PP Neue Montreal instead, obtain a
+   license and host the font files locally in docs/_static/fonts/.
+   -------------------------------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&family=Roboto+Mono:wght@400;700&display=swap");
+
+/* --------------------------------------------------------------------------
+   Light-mode design tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand colours */
+  --ditto-color-primary: #5c6bc0;
+  --ditto-color-primary-dark: #3949ab;
+  --ditto-color-primary-light: #9fa8da;
+  --ditto-color-accent: #26c6da;
+
+  /* Neutral palette */
+  --ditto-color-bg: #ffffff;
+  --ditto-color-bg-secondary: #f5f6fa;
+  --ditto-color-surface: #ffffff;
+  --ditto-color-border: #e0e4ef;
+  --ditto-color-text: #1a1d2e;
+  --ditto-color-text-muted: #6b7280;
+
+  /* Typography */
+  --ditto-font-sans: "Montserrat", "PP Neue Montreal", system-ui, sans-serif;
+  --ditto-font-mono: "Roboto Mono", "PP Neue Montreal Mono", "Courier New", monospace;
+  --ditto-font-size-base: 1rem;
+  --ditto-line-height: 1.6;
+
+  /* Spacing scale */
+  --ditto-space-xs: 0.25rem;
+  --ditto-space-sm: 0.5rem;
+  --ditto-space-md: 1rem;
+  --ditto-space-lg: 1.5rem;
+  --ditto-space-xl: 2rem;
+  --ditto-space-2xl: 3rem;
+
+  /* Border radius */
+  --ditto-radius-sm: 4px;
+  --ditto-radius-md: 8px;
+  --ditto-radius-lg: 12px;
+
+  /* Shadows */
+  --ditto-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --ditto-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+/* --------------------------------------------------------------------------
+   Dark-mode design tokens
+   -------------------------------------------------------------------------- */
+html[data-theme="dark"] {
+  --ditto-color-primary: #7986cb;
+  --ditto-color-primary-dark: #5c6bc0;
+  --ditto-color-primary-light: #c5cae9;
+  --ditto-color-accent: #4dd0e1;
+
+  --ditto-color-bg: #0d0f1a;
+  --ditto-color-bg-secondary: #161929;
+  --ditto-color-surface: #1e2235;
+  --ditto-color-border: #2d3150;
+  --ditto-color-text: #e8eaf6;
+  --ditto-color-text-muted: #9fa8da;
+}
+
+/* --------------------------------------------------------------------------
+   Base typography
+   -------------------------------------------------------------------------- */
+body {
+  font-family: var(--ditto-font-sans);
+  font-size: var(--ditto-font-size-base);
+  line-height: var(--ditto-line-height);
+  color: var(--ditto-color-text);
+}
+
+code,
+pre,
+kbd,
+samp,
+.highlight {
+  font-family: var(--ditto-font-mono);
+}
+
+/* --------------------------------------------------------------------------
+   Navbar logo sizing
+   -------------------------------------------------------------------------- */
+.navbar-brand img,
+.bd-header .navbar-brand img {
+  height: 32px;
+  width: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Footer – logo left of copyright text in mono
+   -------------------------------------------------------------------------- */
+/* Make footer items sit on one line */
+.bd-footer .footer-items__start {
+  display: flex;
+  flex-direction: row !important;
+  /* override PyData column */
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Prevent full-width stacking */
+.bd-footer .footer-items__start .footer-item {
+  width: auto !important;
+}
+
+/* Remove forced line break */
+.bd-footer .copyright br {
+  display: none;
+}
+
+/* Logo + text alignment */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--ditto-font-mono);
+  font-size: 0.8rem;
+  color: var(--ditto-color-text-muted);
+}
+
+.footer-brand img {
+  height: 24px;
+  width: auto;
+}
+
+.bd-footer .copyright {
+  font-family: var(--ditto-font-mono);
+  color: var(--ditto-color-text-muted);
+  font-size: 0.8rem;
+}
+
+/* --------------------------------------------------------------------------
+   Sidebar / TOC refinements
+   -------------------------------------------------------------------------- */
+.bd-sidebar-primary {
+  border-right: 1px solid var(--ditto-color-border);
+}
+
+/* --------------------------------------------------------------------------
+   Code blocks
+   -------------------------------------------------------------------------- */
+.highlight {
+  border-radius: var(--ditto-radius-md);
+  border: 1px solid var(--ditto-color-border);
+}
+
+/* --------------------------------------------------------------------------
+   Cards (sphinx-design)
+   -------------------------------------------------------------------------- */
+.sd-card {
+  border: 1px solid var(--ditto-color-border) !important;
+  border-radius: var(--ditto-radius-md) !important;
+  box-shadow: var(--ditto-shadow-sm) !important;
+  background: var(--ditto-color-surface) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Admonitions
+   -------------------------------------------------------------------------- */
+.admonition {
+  border-radius: var(--ditto-radius-sm);
+  border-left: 4px solid var(--ditto-color-primary);
+}
