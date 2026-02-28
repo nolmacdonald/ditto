@@ -1,0 +1,41 @@
+name: Documentation Request
+description: Report missing, unclear, or incorrect documentation.
+title: "docs: "
+labels: ["type::documentation", "status::needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help us improve the documentation! Describe what is missing or unclear.
+
+  - type: input
+    id: location
+    attributes:
+      label: Documentation location
+      description: URL or file path of the affected documentation.
+      placeholder: "e.g. https://nolmacdonald.github.io/ditto/api/index.html"
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What is missing or incorrect?
+      description: Describe the documentation issue clearly.
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested improvement
+      description: How should the documentation be changed?
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+    validations:
+      required: false
