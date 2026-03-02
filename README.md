@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/_static/logo/ditto_readme.svg" width="300">
+  <img src="docs/source/_static/logo/ditto_readme.svg" width="300">
 </p>
 
 <p align="center">
