@@ -17,20 +17,20 @@
   <a href="https://github.com/nolmacdonald/ditto">
     <img 
       src="https://img.shields.io/badge/python-3.10%2B-777BB4?logo=python&logoColor=white" 
-      alt="Python >=3.10" 
+      alt="Python >=3.10"
     />
   </a>
   <img 
   src="https://img.shields.io/badge/linting-ruff-46a2f1?logo=ruff&logoColor=white" 
-  alt="Ruff" 
+  alt="Ruff"
   />
   <img 
   src="https://img.shields.io/badge/docs-sphinx-0A507A?logo=sphinx&logoColor=white" 
-  alt="Sphinx Docs" 
+  alt="Sphinx Docs"
   />
   <img 
     src="https://img.shields.io/badge/build-hatchling-4051b5" 
-    alt="Hatchling" 
+    alt="Hatchling"
   />
 </p>
 
