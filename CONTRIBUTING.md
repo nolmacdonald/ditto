@@ -12,12 +12,19 @@ ditto uses [uv](https://docs.astral.sh/uv/) for dependency management.
 git clone https://github.com/nolmacdonald/ditto.git
 cd ditto
 
-# Create the virtual environment and install dev dependencies
-uv sync --extra dev
+# Create the virtual environment and install the project + dev group
+uv sync
 
-# Optionally install docs dependencies as well
-uv sync --extra dev --extra docs
+# Optionally install the docs group as well
+uv sync --group docs
 ```
+
+`uv sync` provisions the interpreter pinned in `.python-version` (currently
+3.14), so you do not need a matching `python` on your `PATH`. Dependencies are
+installed from `uv.lock`; CI runs with `UV_FROZEN=1`, so commit the lockfile
+whenever you change `pyproject.toml`.
+
+ditto supports Python 3.12, 3.13 and 3.14, and CI tests all three.
 
 ## Code Style
 
@@ -42,22 +49,34 @@ Run the test suite with coverage:
 uv run pytest
 ```
 
+## Building
+
+ditto builds with the [uv build backend](https://docs.astral.sh/uv/concepts/build-backend/):
+
+```bash
+uv build
+```
+
+This produces an sdist and a wheel in `dist/`. CI additionally installs the
+built wheel in an isolated environment to confirm it imports.
+
 ## Documentation
 
 Build the documentation locally:
 
 ```bash
-cd docs
-uv run sphinx-build -b html . _build/html
+uv sync --group docs
+uv run sphinx-build -b html docs/source docs/_build/html -W --keep-going
 ```
 
-Open `docs/_build/html/index.html` in a browser.
+Open `docs/_build/html/index.html` in a browser. CI builds with `-W`, so
+warnings are errors.
 
 ## Pull Request Process
 
 1. Fork the repository and create a feature branch.
 2. Write tests for your changes.
-3. Ensure all checks pass (`ruff`, `ty`, `pytest`).
+3. Ensure all checks pass (`ruff`, `ty`, `pytest`) and that `uv build` succeeds.
 4. Open a pull request using the provided template.
 5. A maintainer will review and merge your PR.
 
