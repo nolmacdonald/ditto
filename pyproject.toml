@@ -1,12 +1,29 @@
+# ---------------------------------------------------------------------------
+# TEMPLATE: after generating a repo from ditto, run
+#     python scripts/rename_project.py <your-package-name>
+# or follow the manual checklist in TEMPLATE.md.
+# ---------------------------------------------------------------------------
+
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["uv_build>=0.10.3,<0.11.0"]
+build-backend = "uv_build"
 
 [project]
 name = "ditto"
 version = "0.1.0"
 description = "Development Infrastructure Template Tool for Optimization"
-requires-python = ">=3.11"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Nolan MacDonald" }]
+requires-python = ">=3.12"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
 dependencies = [
     "numpy",
     "matplotlib",
@@ -15,7 +32,16 @@ dependencies = [
     "pint",
 ]
 
-[project.optional-dependencies]
+[project.urls]
+Homepage = "https://github.com/nolmacdonald/ditto"
+Documentation = "https://nolmacdonald.github.io/ditto"
+Repository = "https://github.com/nolmacdonald/ditto"
+Issues = "https://github.com/nolmacdonald/ditto/issues"
+Changelog = "https://github.com/nolmacdonald/ditto/blob/main/CHANGELOG.md"
+
+# Development tooling lives in PEP 735 dependency groups, not extras, so it is
+# never installed by consumers who `pip install ditto`.
+[dependency-groups]
 dev = [
     "pytest",
     "pytest-cov",
@@ -30,12 +56,19 @@ docs = [
     "myst-parser",
 ]
 
-[tool.hatch.build.targets.wheel]
-packages = ["src/ditto"]
+[tool.uv]
+# `uv sync` installs these groups automatically; add "docs" here if you want
+# documentation dependencies in every environment.
+default-groups = ["dev"]
+
+[tool.uv.build-backend]
+# RENAME: `module-name` must match the directory under src/.
+module-name = "ditto"
+module-root = "src"
 
 [tool.ruff]
 line-length = 88
-target-version = "py311"
+target-version = "py312"
 src = ["src"]
 
 [tool.ruff.lint]
@@ -48,7 +81,13 @@ indent-style = "space"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+# RENAME: --cov must name the importable package.
 addopts = "--cov=ditto --cov-report=term-missing"
 
-[tool.ty]
-python-version = "3.11"
+[tool.coverage.run]
+branch = true
+
+[tool.ty.environment]
+# Lowest supported interpreter; keep in sync with `requires-python`.
+python-version = "3.12"
+root = ["./src"]
