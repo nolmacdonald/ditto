@@ -1,5 +1,9 @@
 <p align="center">
-  <img src="docs/source/_static/logo/ditto_readme.svg" width="300">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/source/_static/logo/ditto-dark-mode.svg">
+    <source media="(prefers-color-scheme: light)" srcset="docs/source/_static/logo/ditto-light-mode.svg">
+    <img src="docs/source/_static/logo/ditto-dark-mode.svg" width="300">
+  </picture>
 </p>
 
 <p align="center">
