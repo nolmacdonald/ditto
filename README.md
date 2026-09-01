@@ -1,5 +1,9 @@
 <p align="center">
-  <img src="docs/source/_static/logo/ditto_readme.svg" width="300">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/source/_static/logo/ditto-dark-mode.svg">
+    <source media="(prefers-color-scheme: light)" srcset="docs/source/_static/logo/ditto-light-mode.svg">
+    <img src="docs/source/_static/logo/ditto-dark-mode.svg" width="300">
+  </picture>
 </p>
 
 <p align="center">
@@ -16,8 +20,8 @@
   </a>
   <a href="https://github.com/nolmacdonald/ditto">
     <img 
-      src="https://img.shields.io/badge/python-3.10%2B-777BB4?logo=python&logoColor=white" 
-      alt="Python >=3.10"
+      src="https://img.shields.io/badge/python-3.12%2B-777BB4?logo=python&logoColor=white" 
+      alt="Python >=3.12"
     />
   </a>
   <img 
@@ -29,8 +33,8 @@
   alt="Sphinx Docs"
   />
   <img 
-    src="https://img.shields.io/badge/build-hatchling-4051b5" 
-    alt="Hatchling"
+    src="https://img.shields.io/badge/build-uv__build-DE5FE9?logo=uv&logoColor=white" 
+    alt="uv_build"
   />
 </p>
 
@@ -52,16 +56,32 @@ Stop copying boilerplate between repos — clone ditto and get straight to the s
 
 | Feature              | Tooling                                                                                             |
 |----------------------|-----------------------------------------------------------------------------------------------------|
-| Build backend        | [hatchling](https://hatch.pypa.io/)                                                                 |
+| Build backend        | [uv_build](https://docs.astral.sh/uv/concepts/build-backend/)                                       |
 | Formatting & linting | [ruff](https://docs.astral.sh/ruff/)                                                                |
 | Type checking        | [ty](https://github.com/astral-sh/ty)                                                               |
-| Virtual environment  | [uv](https://docs.astral.sh/uv/)                                                                    |
+| Env & dependencies   | [uv](https://docs.astral.sh/uv/) (universal `uv.lock`, PEP 735 groups)                              |
 | Testing & coverage   | [pytest](https://docs.pytest.org/) + pytest-cov                                                     |
 | Units                | [pint](https://pint.readthedocs.io/)                                                                |
 | Documentation        | [Sphinx](https://www.sphinx-doc.org/) + [PyData theme](https://pydata-sphinx-theme.readthedocs.io/) |
+| Python support       | 3.12, 3.13, 3.14 (tested in CI)                                                                     |
 | CI/CD                | [GitHub Actions](https://github.com/features/actions)                                               |
 
 </p>
+
+## Use This Template
+
+Click **[Use this template](https://github.com/nolmacdonald/ditto/generate)** on GitHub,
+clone your new repository, then rename the package:
+
+```bash
+python scripts/rename_project.py my_package --owner my-github-user --repo my-repo
+```
+
+The script renames `src/ditto/` and rewrites every reference to `ditto` in
+`pyproject.toml`, the docs, the workflows, and the issue templates. It only
+depends on the standard library, so no environment is needed to run it. Pass
+`--dry-run` first to preview the changes, and see [TEMPLATE.md](TEMPLATE.md) for
+the full checklist of what to do afterwards.
 
 ## Quick Start
 
@@ -72,17 +92,25 @@ uv sync
 uv run pytest
 ```
 
+`uv sync` provisions the interpreter pinned in `.python-version`, creates
+`.venv`, and installs the project plus the `dev` dependency group from
+`uv.lock`. No `pip`, `venv`, or `python` on `PATH` required.
+
 ## Installation
 
 ```bash
+uv add ditto      # into a project
 uv pip install ditto
 ```
 
 ## Development
 
 ```bash
-# Install dev dependencies
-uv sync --extra dev --extra docs
+# Sync the environment (project + dev group)
+uv sync
+
+# Include the docs group as well
+uv sync --group docs
 
 # Format and lint
 uv run ruff format .
@@ -93,13 +121,16 @@ uv run ty check src/
 
 # Run tests
 uv run pytest
+
+# Build the sdist and wheel with the uv build backend
+uv build
 ```
 
 ## Documentation
 
 ```bash
-uv sync --extra docs
-cd docs && uv run sphinx-build -b html . _build/html
+uv sync --group docs
+uv run sphinx-build -b html docs/source docs/_build/html
 ```
 
 Full documentation is available at **[nolmacdonald.github.io/ditto](https://nolmacdonald.github.io/ditto)**.

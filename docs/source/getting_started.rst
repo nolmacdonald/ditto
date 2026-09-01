@@ -14,15 +14,23 @@ Or using ``uv``::
 
    uv add ditto
 
-For development, clone the repository and install with optional extras::
+For development, clone the repository and sync the environment::
 
    git clone https://github.com/nolmacdonald/ditto.git
    cd ditto
-   uv sync --extra dev
+   uv sync
 
-For building documentation, install the docs extras::
+``uv sync`` provisions the interpreter pinned in ``.python-version``, creates
+``.venv``, and installs ditto together with the ``dev`` dependency group.
 
-   uv sync --extra docs
+For building documentation, add the ``docs`` group::
+
+   uv sync --group docs
+
+Requirements
+------------
+
+ditto requires Python 3.12 or newer and is tested against 3.12, 3.13 and 3.14.
 
 Quick Start
 -----------

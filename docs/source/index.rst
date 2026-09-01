@@ -7,7 +7,8 @@ ditto
 
 ditto is a Python package template that provides a robust starting point for
 scientific Python projects. It bundles best-practice tooling for formatting,
-type checking, testing, and documentation out of the box.
+type checking, testing, building, and documentation out of the box, managed
+end to end by `uv <https://docs.astral.sh/uv/>`_.
 
 .. grid:: 2
    :gutter: 3
