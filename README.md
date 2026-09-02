@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-<span style="color: #D8D8D8;"><strong>Developer Integrated Toolkit for Technical Optimization (DITTO)</strong></span>
+<span style="color: #D8D8D8;"><strong>Development Infrastructure Template Tool for Optimization (DITTO)</strong></span>
   
 </p>
 
@@ -99,7 +99,7 @@ uv run pytest
 ## Installation
 
 ```bash
-uv add ditto      # into a project
+uv add ditto # into a project
 uv pip install ditto
 ```
 
