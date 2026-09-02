@@ -48,7 +48,7 @@ The script cannot make these decisions for you:
 | Dependencies | `pyproject.toml` | ditto ships numpy/scipy/pandas/matplotlib/pint. Trim to what you actually use. |
 | GitHub Pages | Repo → Settings → Pages | Set the source to **GitHub Actions** so `docs.yml` can deploy. |
 | Codecov | Repo → Codecov | Optional. CI is configured with `fail_ci_if_error: false`, so it is harmless if unconfigured. |
-| Labels | `.github/labels.yml` | Apply them with the GitHub CLI or a label-sync action. |
+| Labels | `.github/labels.yml` | Nothing to do — `.github/workflows/labels.yml` syncs them automatically on every push to `main`. |
 | Branch protection | Repo → Settings → Rules | CI defines `lint`, `test`, and `build` as separate required checks; `test` is a 3.12/3.13/3.14 matrix, so it reports as three checks (e.g. `Test (Python 3.12)`) — select all three. |
 
 ## 4. Every place the template name appears
@@ -73,3 +73,10 @@ Verify nothing is left behind:
 ```bash
 grep -rIn 'ditto\|nolmacdonald' --exclude-dir=.git --exclude-dir=.venv .
 ```
+
+This searches for the *template's* identifiers, not your new name — it should always
+be `ditto`/`nolmacdonald` here, regardless of what you renamed to, since the goal is
+to catch anything the script missed. One hit is expected and fine: the attribution
+line `rename_project.py` writes into the fresh `CHANGELOG.md` ("generated from the
+[ditto](https://github.com/nolmacdonald/ditto) template") links back to the template
+on purpose. Any other hit means something wasn't renamed.
