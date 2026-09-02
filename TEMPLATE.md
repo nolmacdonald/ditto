@@ -30,7 +30,7 @@ differ from the import name (hyphens are legal on PyPI, not in an import).
 Then:
 
 ```bash
-uv lock          # regenerate the lockfile under the new project name
+uv lock # regenerate the lockfile under the new project name
 uv sync
 uv run pytest
 ```
@@ -49,7 +49,7 @@ The script cannot make these decisions for you:
 | GitHub Pages | Repo → Settings → Pages | Set the source to **GitHub Actions** so `docs.yml` can deploy. |
 | Codecov | Repo → Codecov | Optional. CI is configured with `fail_ci_if_error: false`, so it is harmless if unconfigured. |
 | Labels | `.github/labels.yml` | Apply them with the GitHub CLI or a label-sync action. |
-| Branch protection | Repo → Settings → Rules | CI defines `lint`, `test`, and `build` as separate required checks. |
+| Branch protection | Repo → Settings → Rules | CI defines `lint`, `test`, and `build` as separate required checks; `test` is a 3.12/3.13/3.14 matrix, so it reports as three checks (e.g. `Test (Python 3.12)`) — select all three. |
 
 ## 4. Every place the template name appears
 
