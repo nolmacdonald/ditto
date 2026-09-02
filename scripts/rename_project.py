@@ -88,7 +88,11 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         help="PyPI distribution name. Defaults to the package name with "
         "underscores replaced by hyphens.",
     )
-    parser.add_argument("--owner", help="GitHub user or organisation.")
+    parser.add_argument(
+        "--owner",
+        required=True,
+        help="GitHub user or organisation (required).",
+    )
     parser.add_argument(
         "--repo", help="GitHub repository name. Defaults to --dist-name."
     )
@@ -129,7 +133,7 @@ def build_replacements(args: argparse.Namespace) -> list[tuple[str, str]]:
     """
     package = args.package
     dist_name = args.dist_name or package.replace("_", "-")
-    owner = args.owner or TEMPLATE_OWNER
+    owner = args.owner
     repo = args.repo or dist_name
 
     pairs: list[tuple[str, str]] = [
@@ -269,7 +273,7 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     dist_name = args.dist_name or args.package.replace("_", "-")
-    owner = args.owner or TEMPLATE_OWNER
+    owner = args.owner
     repo = args.repo or dist_name
     pairs = build_replacements(args)
 
