@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-<span style="color: #D8D8D8;"><strong>Development Infrastructure Template Tool for Optimization (DITTO)</strong></span>
+<span style="color: #D8D8D8;"><strong>Duplicate, Install, Transform, Test, Optimize (DITTO)</strong></span>
   
 </p>
 
@@ -47,8 +47,7 @@
 
 ---
 
-**ditto** is a batteries-included Python package template for scientific computing projects.
-Stop copying boilerplate between repos — clone ditto and get straight to the science.
+A Python package template that transforms into whatever you want to build.
 
 ## Features
 
