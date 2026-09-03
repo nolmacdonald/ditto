@@ -3,7 +3,7 @@
 ditto
 =====
 
-**Development Infrastructure Template Tool for Optimization**
+**Duplicate, Install, Transform, Test, Optimize**
 
 ditto is a Python package template that provides a robust starting point for
 scientific Python projects. It bundles best-practice tooling for formatting,
