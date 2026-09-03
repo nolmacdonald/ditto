@@ -11,7 +11,7 @@ build-backend = "uv_build"
 [project]
 name = "ditto"
 version = "0.1.0"
-description = "Development Infrastructure Template Tool for Optimization"
+description = "Duplicate, Install, Transform, Test, Optimize"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]

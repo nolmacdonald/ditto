@@ -35,7 +35,7 @@ from pathlib import Path
 TEMPLATE_PACKAGE = "ditto"
 TEMPLATE_OWNER = "nolmacdonald"
 TEMPLATE_REPO = "ditto"
-TEMPLATE_TITLE = "Development Infrastructure Template Tool for Optimization"
+TEMPLATE_TITLE = "Duplicate, Install, Transform, Test, Optimize"
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 

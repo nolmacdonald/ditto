@@ -20,7 +20,7 @@ what is left to do by hand.
 
 Released: 2025-01-01
 
-Initial release of **ditto** — Development Infrastructure Template Tool for Optimization.
+Initial release of **ditto** — Duplicate, Install, Transform, Test, Optimize.
 
 ditto provides a fully configured Python package template with:
 
