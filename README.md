@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-<span style="color: #D8D8D8;"><strong>Duplicate, Install, Transform, Test, Optimize (DITTO)</strong></span>
+<span style="color: #D8D8D8;"><strong>duplicate. install. transform. test. optimize. ditto.</strong></span>
   
 </p>
 
