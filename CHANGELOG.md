@@ -30,6 +30,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI pins `UV_FROZEN=1` so a stale `uv.lock` fails the build.
 - GitHub Actions updated: `checkout@v5`, `setup-uv@v7`, `codecov-action@v5`;
   `setup-python` dropped in favour of uv-managed interpreters.
+- Issue template titles use bracketed all-caps prefixes (`[BUG]`, `[DOCS]`,
+  `[FEATURE]`) instead of `bug:`/`docs:`/`feat:`; the PR template and
+  `CONTRIBUTING.md` document the same convention.
+- Repository labels reorganised into `type::`, `priority::`, `status::` and
+  `scope::` groups. Added `type::release`, `status::needs-info` and
+  `scope::frontend`/`backend`/`core`. Renamed `type::documentation` →
+  `type::docs`, `status::needs-triage` → `status::triage`,
+  `type::dependencies` → `scope::deps` and `type::test` → `scope::testing`.
+  Removed `type::ci` (covered by `scope::testing`) and all `area::` labels.
 
 ### Fixed
 

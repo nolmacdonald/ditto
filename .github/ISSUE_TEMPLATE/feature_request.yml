@@ -1,7 +1,7 @@
 name: Feature Request
 description: Propose a new feature or enhancement for ditto.
-title: "feat: "
-labels: ["type::feature", "status::needs-triage"]
+title: "[FEATURE] "
+labels: ["type::feature", "status::triage"]
 body:
   - type: markdown
     attributes:

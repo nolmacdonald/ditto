@@ -77,13 +77,42 @@ warnings are errors.
 1. Fork the repository and create a feature branch.
 2. Write tests for your changes.
 3. Ensure all checks pass (`ruff`, `ty`, `pytest`) and that `uv build` succeeds.
-4. Open a pull request using the provided template.
+4. Open a pull request using the provided template, with a bracketed title
+   prefix (see Titles below).
 5. A maintainer will review and merge your PR.
 
 ## Reporting Issues
 
 Please use the issue templates in `.github/ISSUE_TEMPLATE/` when filing bugs,
 feature requests, or documentation improvements.
+
+## Titles
+
+Issue and pull request titles start with an all-caps type in brackets:
+
+| Prefix          | Use for                                          | Label               |
+|-----------------|--------------------------------------------------|---------------------|
+| `[BUG]`         | Something broken or behaving unexpectedly        | `type::bug`         |
+| `[DOCS]`        | Documentation additions or corrections           | `type::docs`        |
+| `[FEATURE]`     | A brand-new feature or capability                | `type::feature`     |
+| `[ENHANCEMENT]` | Polish or quality-of-life on an existing feature | `type::enhancement` |
+| `[REFACTOR]`    | Restructuring code without changing behaviour    | `type::refactor`    |
+| `[RELEASE]`     | Version bumps, changelog, release coordination   | `type::release`     |
+
+For example: `[BUG] Logger drops messages below WARNING`. The issue templates
+pre-fill the prefix for you.
+
+## Labels
+
+Labels are defined in `.github/labels.yml` and synced to GitHub by
+`.github/workflows/labels.yml` on every push to `main` that changes that file.
+Edit the YAML, not the GitHub UI — labels missing from the file are removed on
+the next sync. Each issue or PR should carry one `type::` label, plus any of:
+
+- `priority::` — `critical`, `high`, `medium`, `low`
+- `status::` — `triage`, `in-progress`, `blocked`, `needs-info`,
+  `ready-for-review`, `needs-changes`, `wont-fix`
+- `scope::` — `frontend`, `backend`, `core`, `deps`, `testing`
 
 ## Code of Conduct
 
