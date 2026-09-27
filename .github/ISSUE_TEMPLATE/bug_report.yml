@@ -1,7 +1,7 @@
 name: Bug Report
 description: Report a bug or unexpected behaviour in ditto.
-title: "bug: "
-labels: ["type::bug", "status::needs-triage"]
+title: "[BUG] "
+labels: ["type::bug", "status::triage"]
 body:
   - type: markdown
     attributes:

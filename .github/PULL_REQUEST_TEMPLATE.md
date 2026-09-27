@@ -1,3 +1,9 @@
+<!--
+  Title format: [TYPE] Short summary
+  e.g. [FEATURE] Add CSV export, [BUG] Fix off-by-one in parser, [DOCS] Clarify install steps
+  Prefixes: [BUG] [DOCS] [FEATURE] [ENHANCEMENT] [REFACTOR] [RELEASE]
+-->
+
 ## Summary
 
 <!-- Briefly describe what this PR does. -->
@@ -21,9 +27,10 @@ Closes #
 
 - [ ] Bug fix (`type::bug`)
 - [ ] New feature (`type::feature`)
-- [ ] Documentation update (`type::documentation`)
+- [ ] Enhancement to an existing feature (`type::enhancement`)
+- [ ] Documentation update (`type::docs`)
 - [ ] Refactor (`type::refactor`)
-- [ ] CI / tooling (`type::ci`)
+- [ ] Release (`type::release`)
 - [ ] Other (describe below)
 
 ## Checklist

@@ -1,7 +1,12 @@
+
 # Type labels
 - name: "type::bug"
   color: "d73a4a"
   description: "Something is broken or behaves unexpectedly"
+
+- name: "type::docs"
+  color: "0075ca"
+  description: "Documentation additions or corrections"
 
 - name: "type::feature"
   color: "5c6bc0"
@@ -9,52 +14,15 @@
 
 - name: "type::enhancement"
   color: "7986cb"
-  description: "Improvement to an existing feature"
-
-- name: "type::documentation"
-  color: "0075ca"
-  description: "Documentation additions or corrections"
+  description: "Minor improvement, polish, or quality-of-life adjustment to an existing feature"
 
 - name: "type::refactor"
   color: "e4e669"
-  description: "Code refactoring with no behaviour change"
+  description: "Restructuring existing code without changing its external behaviour or adding features"
 
-- name: "type::ci"
-  color: "bfd4f2"
-  description: "CI/CD and tooling changes"
-
-- name: "type::test"
-  color: "d4c5f9"
-  description: "Test additions or updates"
-
-- name: "type::dependencies"
-  color: "0366d6"
-  description: "Dependency updates"
-
-# Status labels
-- name: "status::needs-triage"
-  color: "e4e669"
-  description: "Awaiting triage by a maintainer"
-
-- name: "status::in-progress"
-  color: "fbca04"
-  description: "Actively being worked on"
-
-- name: "status::blocked"
-  color: "b60205"
-  description: "Blocked by another issue or external factor"
-
-- name: "status::ready-for-review"
-  color: "0e8a16"
-  description: "Ready for maintainer review"
-
-- name: "status::needs-changes"
-  color: "e99695"
-  description: "Review completed – changes requested"
-
-- name: "status::wont-fix"
-  color: "ffffff"
-  description: "Out of scope or intentionally not fixed"
+- name: "type::release"
+  color: "006b75"
+  description: "Version bumps, changelog generation, deployment coordination, or release notes"
 
 # Priority labels
 - name: "priority::critical"
@@ -73,19 +41,52 @@
   color: "0e8a16"
   description: "Low priority – address when possible"
 
-# Area labels
-- name: "area::api"
+# Status labels
+- name: "status::triage"
+  color: "ededed"
+  description: "New issue needing review from a maintainer"
+
+- name: "status::in-progress"
+  color: "fbca04"
+  description: "Someone is actively working on this"
+
+- name: "status::blocked"
+  color: "b60205"
+  description: "Waiting on another issue, a dependency, or a design decision"
+
+- name: "status::needs-info"
+  color: "d876e3"
+  description: "More reproduction steps or details are required from the author"
+
+- name: "status::ready-for-review"
+  color: "0e8a16"
+  description: "Ready for maintainer review"
+
+- name: "status::needs-changes"
+  color: "e99695"
+  description: "Review completed – changes requested"
+
+- name: "status::wont-fix"
+  color: "ffffff"
+  description: "Out of scope or intentionally not fixed"
+
+# Scope labels
+- name: "scope::frontend"
+  color: "c5def5"
+  description: "Frontend, UI, or styling changes"
+
+- name: "scope::backend"
   color: "c2e0c6"
-  description: "Public API changes"
+  description: "Server-side code, APIs, or database changes"
 
-- name: "area::docs"
-  color: "bfd4f2"
-  description: "Documentation area"
-
-- name: "area::ci"
-  color: "d4c5f9"
-  description: "CI/CD area"
-
-- name: "area::packaging"
+- name: "scope::core"
   color: "fef2c0"
-  description: "Build, packaging and release"
+  description: "Essential architecture, configuration, or system-wide logic"
+
+- name: "scope::deps"
+  color: "0366d6"
+  description: "Dependency updates"
+
+- name: "scope::testing"
+  color: "d4c5f9"
+  description: "Unit tests, integration tests, or CI/CD pipelines"
